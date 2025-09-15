@@ -1,8 +1,10 @@
 /* eslint-disable prettier/prettier */
 import classNames from 'classnames';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
 
 export const NavBar = () => {
+  const [searchParams] = useSearchParams();
+
   return (
     <nav
       data-cy="nav"
@@ -31,9 +33,7 @@ export const NavBar = () => {
             }
             to={{
               pathname: '/people',
-              search: location.pathname.startsWith('/people')
-                ? location.search
-                : '',
+              search: searchParams.toString(),
             }}
           >
             People
