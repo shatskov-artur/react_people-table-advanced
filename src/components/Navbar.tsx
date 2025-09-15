@@ -29,7 +29,12 @@ export const NavBar = () => {
                 'has-background-grey-lighter': isActive,
               })
             }
-            to="/people"
+            to={{
+              pathname: '/people',
+              search: location.pathname.startsWith('/people')
+                ? location.search
+                : '',
+            }}
           >
             People
           </NavLink>
